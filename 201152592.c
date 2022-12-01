@@ -1,13 +1,8 @@
-/* Feito por:
-Paulo José dos Santos
-João Victor Figueredo
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "bt.h"
-#include <locale.h> //necessário para usar setlocale
+#include <locale.h> //necessï¿½rio para usar setlocale
 
 
 #define REGSIZE sizeof(reg)
@@ -44,7 +39,7 @@ int main(void)
 	{
 		if ((pout = fopen("streaming.bin","w+b")) == NULL)
 		{
-			printf("Não foi possivel abrir o arquivo principal, verifique se já está aberto em outro programa!");
+			printf("Nï¿½o foi possivel abrir o arquivo principal, verifique se jï¿½ estï¿½ aberto em outro programa!");
 			return 0;
 		}
 	}
@@ -54,7 +49,7 @@ int main(void)
 	
   	while (op != 7)
    	{
-   		printf("\nPor favor digite a opção:\n1.Inserir\n2.Listar todos os dados\n3.Listar dados de um cliente específico\n4.Insere do arquivo\n5.Busca do arquivo\n0.Sair\n");
+   		printf("\nPor favor digite a opï¿½ï¿½o:\n1.Inserir\n2.Listar todos os dados\n3.Listar dados de um cliente especï¿½fico\n4.Insere do arquivo\n5.Busca do arquivo\n0.Sair\n");
    		scanf(" %d", &op);
    		
    		switch(op){
@@ -72,9 +67,9 @@ int main(void)
     			pos=ftell(out);
     			fclose(out);
     			
-	   			printf("\nDigite o código do cliente:\n");
+	   			printf("\nDigite o cï¿½digo do cliente:\n");
     			scanf(" %d", &key[0]);
-    			printf("\nDigite o código do filme:\n");
+    			printf("\nDigite o cï¿½digo do filme:\n");
     			scanf(" %d", &key[1]);
     			key[2] = (pos/REGSIZE);
     			
@@ -103,7 +98,7 @@ int main(void)
     					root = getroot();
     					listarTodosDados(root, key);				
 					}else{
-						printf("Não foi possível abrir o arquivo de indíces");
+						printf("Nï¿½o foi possï¿½vel abrir o arquivo de indï¿½ces");
 					}
 					btclose();
 				break;	   			
@@ -120,26 +115,26 @@ int main(void)
     				root = getroot();
     				int foiAchado = listarClienteByKey(root, &page, codC, codF);	
 					if(foiAchado < 1){
-						printf("Chave %d%d não encontrada.\n", codC, codF);
+						printf("Chave %d%d nï¿½o encontrada.\n", codC, codF);
 					}			
 				}else{
-					printf("Não foi possível abrir o arquivo de indíces\n");
+					printf("Nï¿½o foi possï¿½vel abrir o arquivo de indï¿½ces\n");
 				}
 					btclose();
 				break;				
 			case 4:
-				printf("\nDigite quantas inserções serão feitas:\n");
+				printf("\nDigite quantas inserï¿½ï¿½es serï¿½o feitas:\n");
 	   			scanf(" %d", &tempInsercoes);
 				insereArq(tempInsercoes, &promo_rrn);
 				break;
 			case 5:
 					if (btopen())
 					{		
-    					printf("\nDigite quantas buscas serão feitas:\n");
+    					printf("\nDigite quantas buscas serï¿½o feitas:\n");
 			   			scanf(" %d", &tempInsercoes);
 						buscaPArq(tempInsercoes);				
 					}else{
-						printf("Não foi possível abrir o arquivo de indíces\n");
+						printf("Nï¿½o foi possï¿½vel abrir o arquivo de indï¿½ces\n");
 					}
 					btclose();
 		
@@ -238,7 +233,7 @@ void insereArq (int tempInsercoes, short *promo_rrn){
 	fclose(pout);
 	
    	if(i!=tempInsercoes){
-   		printf("\nO arquivo tinha apenas %d inserções disponíveis, foram inseridos %d registros\n", i, i);
+   		printf("\nO arquivo tinha apenas %d inserï¿½ï¿½es disponï¿½veis, foram inseridos %d registros\n", i, i);
    		return;
 	}	
    	
@@ -290,7 +285,7 @@ void buscaPArq(int tempBuscas){
 				
 			}
 		else{
-			printf("\nNão foi possível abrir o arquivo de indíces\n");
+			printf("\nNï¿½o foi possï¿½vel abrir o arquivo de indï¿½ces\n");
 			
 			return;
 		}
@@ -300,7 +295,7 @@ void buscaPArq(int tempBuscas){
    	}
    	
 	if(i!=tempBuscas){
-   		printf("\nO arquivo tinha apenas %d buscas disponíveis, foram buscados %d registros\n", i, i);
+   		printf("\nO arquivo tinha apenas %d buscas disponï¿½veis, foram buscados %d registros\n", i, i);
    		return;
 	}
 	   	
